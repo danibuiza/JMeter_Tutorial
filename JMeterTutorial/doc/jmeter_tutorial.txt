@@ -742,19 +742,28 @@ You can use this kind of samplers for updating data as well by changing the SQL 
 <h2>JUnit test plan</h2>
 
 	create a junit test in a java program, please get the one I provide if you like
+
+it basically contains a very easy test class with a couple of assertations, here is the code
+
+code
 	
 	package the project into a jar file and copy it into jmeter lib junit
 	
 	be sure that the jar file contains the .class bytecode of the tests that you want to execute
 	
-	create a test plan as indicated
+	create a test plan as before and add a sampler of the type JUnit request
 	
 	add a junit request (sampler) and configure it to execute the methods that you want.
+
+screenshot
 	
 	add a listener to view results
 	
 	run the test plan
 	
+here you can see the results of the unit tests
+
+this may be very helpful to test functional and business logic of application using JMeter with all the benefits that this application provides, it is also very interesting because it makes possible to combine all the Java language advantages with the multithreating capabilites of JMeter.
 	
 <h2>JMeter Plugins</h2>
 
