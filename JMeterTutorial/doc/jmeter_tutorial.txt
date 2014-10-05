@@ -1,5 +1,3 @@
-<h2>Introduction</h2>
-
 	This tutorial is about JMeter. 
 	These are the main points that we are going to cover:	
 	<li>We are going to explain what is JMeter used for.</li>
@@ -12,10 +10,10 @@
 
 
 
-<h2>What is JMeter?</h2>
+<h2>Introduction</h2>
 
 	JMeter is an application that offers several possibilities to configure and execute load, performance and stress tests using different technologies and protocols. 
-	It allows to simulate different type of requests against all kind of databases, FTP, HTTP, HTTPS or other kind of servers. 
+	It allows simulating different type of requests against all kind of databases, FTP, HTTP, HTTPS or other kind of servers. 
 	It is probably good to explain briefly what all these concepts mean:
 	
 		<li>Load tests: These kind of tests take the systems or applications tested to the extremes that they were designed and required for. They are used to measure systems and applications behavior under extreme conditions.</li>
@@ -25,16 +23,16 @@
 	 Originally JMeter was designed to test web applications but it was expanded with several other functionalities and nowadays allows testing against almost any kind of program and can be used to perform functional tests in your applications. 	
 
 	
-<h2>What technologies uses JMeter?</h2>
+<h2>Technologies used</h2>
 
 	JMeter is a Java desktop application. Its UI is implemented using the Swing Java API. Due to these two points, JMeter is multiplatform and runs in any kind of machine with a Java virtual machine installed: Windows, Linux, Mac...
 	Its framework allows concurrency and the execution of several Threads and Threads Groups. This is very useful when trying to configure loading and stress tests.
-	It is extensible and there are a very large list of plugins available.
+	It is extensible and there is a very large list of plugins available.
 	
 	JMeter is part of the Apache software foundation and is completely free and open source (<a href="http://www.apache.org/licenses/">http://www.apache.org/licenses/</a>).
 
 
-<h2>What is this article about?</h2>
+<h2>What is this article about? </h2>
 
 	This article is a tutorial about how to use JMeter for developers and software engineers without experience on JMeter.
 	It also provides examples and how-tos about different possible configurations and test plans. In the next chapters we are going to see how to install JMeter and how to configure, run, store and analyze the results of different kind of test plans.
@@ -97,49 +95,21 @@
 
 	<li>You should see the start screen of the JMeter GUI:</li>
 		
-		screenshoot_start
+		<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/main-screen.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/main-screen-300x147.jpg" alt="JMeter Main Screen" width="300" height="147" class="aligncenter size-medium wp-image-31236" /></a>
 
 
 <h2>GUI overview</h2>
 	
-	The JMeter GUI is very intuitive and easy to use, common menus for file handling like new, open, save, save as etc. and then specific menus for starting stopping test plans and configuring them are available. Every test plan, thread group and test plan node (we will see these more in detail in the next chapters) offer different context menu options by clicking the mouse right button. 
-	
-	Here are some useful pictures with quick tips:
-	
-		<li>	Change language</li>
-
-		
-	
-			<li>Add Thread Group</li>
-
-	
-	
-			<li>Add HTTP Request</li>
-
-	
-	
-			<li>Clean all</li>
-
-	
-	
-	 		<li>Run test plan </li>
-
-	
-	
-	 		<li>Stop test plan</li>
-
-	
-	
-			<li>Save test plan</li>
-
+	The JMeter GUI is very intuitive and easy to use, common menus for file handling like new, open, save, save as etc. and specific menus for starting and stopping test plans and configuring them are available. Every test plan, thread group and test plan node (we will see these more in detail in the next chapters) offer different context menu options by clicking the mouse right button. 
+It is also possible to change the language of the UI and a big bunch of languages are available. 
 	As we said the GUI is very intuitive and easy to use and offers for every menu and action very understandable tool tips. This is one of the reasons, apart of its quality, why JMeter is so broadly use, because it is really easy to understand and learn how to work with it.
 	
 
-<h2>What kind of (test) requests can be done using JMeter?</h2>
+<h2>Available requests</h2>
 
 	JMeter offers test configurations for almost any kind of system, but in general, following protocols are covered out of the box:
 	
-		<li>Web: HTTP, HTTPS sites 'web 1.0' web 2.0 (ajax, flex and flex-ws-amf): we will see afterwards how to test a potential web page and its behaviour.</li>
+		<li>Web: HTTP, HTTPS sites 'web 1.0' web 2.0 (ajax, flex and flex-ws-amf): we will see afterwards how to test a potential web page and its behavior.</li>
 
     	<li>Web Services: SOAP / XML-RPC.</li>
 
@@ -167,7 +137,7 @@
 
 	Basically using JMeter consists in the creation, configuration and execution of test plans and the analysis their results. Test plans are sets of requests against local or remote servers (or clients) configured to run by following specific instructions. 
 	In the configuration of a test plan you can specify several input and output parameters and you can configure the basic conditions that should be met so the test plan is successful or not.
-	JMeter test plans are composed of different components. Here is a list of the most important ones with instructions about how you can add them using the JMeter UI and what is their purpose:
+	JMeter test plans are composed of different components. Here is a list of the most important ones with instructions about how you can add them using the JMeter UI and what their purpose is:
 	
 <h3>ThreadGroup</h3>
 
@@ -257,7 +227,7 @@
 
 	
 	
-	As we can see in the list above, there are a lot of different types of samplers, this list is not complete since there are several samplers implemented in different JMeter plugins. The configuration of each sampler depends on the request that it executes, that means that some samplers have things in common but others are completely different because of the nature of their requests.
+	As we can see in the list above, there are a lot of different types of samplers; this list is not complete since there are several samplers implemented in different JMeter plugins. The configuration of each sampler depends on the request that it executes, that means that some samplers have things in common but others are completely different because of the nature of their requests.
 
 
 <h3>Logic controllers</h3>
@@ -366,7 +336,7 @@
 
 <h3>Timers</h3>	  
 
-	You can define the time period that you want to wait between requests using timers. If you do not specify any, JMeter will execute the next request inmediatly after the current one is finished, without any waiting time. 
+	You can define the time period that you want to wait between requests using timers. If you do not specify any, JMeter will execute the next request immediately after the current one is finished, without any waiting time. 
 	Following timers are available in JMeter:
 
 	<li>    Constant Timer</li>
@@ -399,7 +369,7 @@
 
 <h3>Assertions</h3>
 
-	Assertions confirm the validity of the test plan by validating the response produced by a Sampler request. Basically assertions are similar to unit test assertions and check the quality of the tested application response. You can configure what kind of assertions are active for every test plan.
+	Assertions confirm the validity of the test plan by validating the response produced by a Sampler request. Basically assertions are similar to unit test assertions and check the quality of the tested application response. You can configure what kind of assertions is active for every test plan.
 	
 	Here is a list of available assertions in JMeter:
 
@@ -544,7 +514,7 @@
 
 <h3>Post processors</h3>
 
-	Is basically an element that is executed after a sampler execution ends. It can be used to parse the response data and extract values that can be used afterwards.
+	Is basically an element that is executed after a sampler execution finishes. It can be used to parse the response data and extract values that can be used afterwards.
 	
 	These elements can be used as post processors:
 	
@@ -580,120 +550,142 @@
 	A test plan elements are ordered and executed always in the following way:
 	
     1 - Configuration nodes
-
     2 - Pre processors
-
     3 - Timers
-
     4 - Sampler
-
     5 - Post processors (only executed if there are results available)
-
     6 - Assertions (only executed if there are results available)
-
     7 - Listeners (only executed if there are results available)
 	
 	
 	It is good to mention that a test plan can contain one or more test plans inside it and that this is a common practice to group tests by functional or technical logic together.
 	
 	
-<h2>How to run and stop test plans</h2>
+<h2>Run/Stop test plans</h2>
 
 	To run a test plan you just need to click in the <code>"Play"</code> button:
 	
-	screenshot
+	<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/start2.png"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/start2-300x139.png" alt="start" width="300" height="139" class="aligncenter size-medium wp-image-31248" /></a>
 	
 	It is possible to start a test and ignore all the pauses by clicking in the button <code>"Play no pauses"</code>
 	
-	screenshot
+	<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/start-no-pauses2.png"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/start-no-pauses2-300x136.png" alt="start no pauses" width="300" height="136" class="aligncenter size-medium wp-image-31247" /></a>
 	
 	You can stop the test by clicking in the <code>"Stop"</code> button:
 	
-	screenshot
+	<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/stop2.png"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/stop2-300x139.png" alt="stop" width="300" height="139" class="aligncenter size-medium wp-image-31249" /></a>
 
-<h2>Web (HTTP) test plan tutorial</h2>
+<h2>Web (HTTP) test plan</h2>
 
-In this chapter we are going to see how to create a test plan to test an specific web page via HTTP. For that purpose i will use the <a href="http://www.javacodegeeks.com">http://www.javacodegeeks.com</a> site.
+In this chapter we are going to see how to create a plan to test an specific web page via HTTP. For that purpose i will use the <a href="http://www.javacodegeeks.com">http://www.javacodegeeks.com</a> site.
 
-	So enough of theory, now we are going to see how to configure an HTTP request test plan. 
+	So enough theory, now we are going to see how to configure an HTTP request test plan. 
 
 
-        Rename Test Plan to the name that you like
+	<li>        Rename Test Plan to the name that you like</li>
 
-	Context Menu over Test Plan -&gt; Add -&gt; Thread -&gt;ThreadGroup	
+In this step is possible to configure the test plan in general terms affecting the behavior of Threads and you can add external libraries that should be used. We are not going to do that in this example.
 
-        Configure number of threads, ramp up period in seconds and number of iterations
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/main-test-plan.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/main-test-plan-300x170.jpg" alt="main test plan" width="300" height="170" class="aligncenter size-medium wp-image-31232" /></a>
 
-screensot
+<li>      Add Thread Group</li>
+
+In this step you need to create a Thread group in charge of executing all the components of the test and configure its main properties: number of threads, ramp up period in seconds and number of iterations.
+	
+<strong>Context Menu over Test Plan -&gt; Add -&gt; Thread -&gt;ThreadGroup</strong>	
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/main-http-test-plan.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/main-http-test-plan-300x106.jpg" alt="main http test plan" width="300" height="106" class="aligncenter size-medium wp-image-31231" /></a>
 
 you can also specify the action you want to take in case of error (continue, stop, stop current Thread...)
 
-       Add Sampler-&gt;HTTP Request
+<li>      Add Sampler HTTP Request</li>
+
+In this step we add the sampler with the information of the HTTP Request that we want to test:
+
+       <strong>Add Sampler-&gt;HTTP Request</strong>
        
-set server name to the name of the server we want to test: www.javacodegeeks.com/ (without the protocol)
+We need to set different properties for this type of request:
 
-modify values for port, protocol, method etc. if needed, if our case this is not necessary
+Set the server name to the name of the server we want to test: www.javacodegeeks.com (without the protocol) in this case. You should modify the connection values for port, protocol, method to execute in the server, etc. if needed, if our case this is not necessary. There are several parameters for configuring proxies, timeouts and different header information as well, but in our case, we leave everything with the default values
 
-there are several parameters for configuring proxies, timeouts and different header information, but in our case, we leave everything with the default values
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-config-sampler.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-config-sampler-300x167.jpg" alt="http config sampler" width="300" height="167" class="aligncenter size-medium wp-image-31226" /></a>
 
-screenshot
+<li>      Add Results Listener</li>
 
-Add Listener -&gt; View Results Tree
+This is needed to be able to see the results afterwards; there are several possibilities as we saw before in this tutorial, for our HTTP Request test plan we are going to use a View Results Tree:
 
-we do not change anything there
+<strong>Add Listener -&gt; View Results Tree</strong>
 
-we save the test plan before executing it
+For our example, we do not change anything there and leave all the configuration properties with the default values.
 
-we run ti
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-results-empty.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-results-empty-300x183.jpg" alt="http results empty" width="300" height="183" class="aligncenter size-medium wp-image-31227" /></a>
 
-once it is done we can check the results in the listener
+<li>      Save the test plan and Run it</li>
 
-screenshot
+<strong>File-&gt;Save</strong> (or click "Control + s")
 
-we can see that 50 requests have been done as expected and all of them provide meaninful responses, so it seems that the web page that we are testing works fine. We can play around with the results and check all the returned data.
+<strong>Run-&gt;Start</strong> (or click play as explained before)
 
-we can add a timer to our test plan
+<li>    Check results in the listener</li>
 
-we rith click on the test plan and add a timer:
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-results-fine.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-results-fine-300x185.jpg" alt="http results fine" width="300" height="185" class="aligncenter size-medium wp-image-31229" /></a>
 
-Add Timer-&gt;Constant Timer
+We can see that all the requests have been done as expected and all of them provide meaningful responses, so it seems that the web page that we are testing works fine (if this is the expected behavior). We can play around with the results and check all the returned data.
 
-and we configure it with 500 miliseconds. every request will wait 500 ms after the last one is finished.
+We have already configured a test plan that sends a bunch or requests to a given server and parses the responses. We are going to see now how to use other type of test components like Timers and Assertions.
 
-screenshot
+<li>   Add a timer</li>
 
-Now we add a couple of assertions to see how these work:
+In order to add a Timer we just right click on the test plan and add a timer:
 
-On the test plan, right click and add assertion-&gt;Duration assertion, we configure it to assert false if the response takes longer than 100 ms, and we configure it for the main sample only:
+<strong>Add Timer-&gt;Constant Timer</strong>
 
-screenshot
+and we configure it with 500 miliseconds. Every request will wait 500 ms after the last one is finished.
 
-if we re run the test plan (after saving) we will  see that we have some issues with this assertion:
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/timer.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/timer-300x55.jpg" alt="timer" width="300" height="55" class="aligncenter size-medium wp-image-31235" /></a>
 
-screenshot
+<li>   Add duration assertion</li>
 
-obvioulsy this happens because we configure the duration assertion only with 100 ms, if we change this figure to 2000 ms almost all requests will be served on time
+On the test plan, right click and add a duration assertion, we configure it to assert false if the response takes longer than 100 ms, and we configure it for the main sample only:
+
+<strong>Add assertion-&gt;Duration assertion</strong>
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/size-assertion-100.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/size-assertion-100-300x116.jpg" alt="size assertion 100" width="300" height="116" class="aligncenter size-medium wp-image-31233" /></a>
+
+If we re run the test plan (after saving) we will  see that we have some issues with this assertion:
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-results-error-assertion-duration.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/http-results-error-assertion-duration-300x127.jpg" alt="http results error assertion duration" width="300" height="127" class="aligncenter size-medium wp-image-31228" /></a>
+
+Obvioulsy this happens because we configure the duration assertion only with 100 ms, if we change this figure to 2000 ms almost all requests will be served on time.
 	
-the same can be done with other assertion types:
+<li>   Add size assertion</li>
 
-Add assertion-&gt;Size Assertion 
+<strong>Add assertion-&gt;Size Assertion </strong>
 
 and we assure that the response has a size larger than 5000 bytes:
 
-screenshot
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/size-assertion-5000.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/size-assertion-5000-300x119.jpg" alt="size assertion 5000" width="300" height="119" class="aligncenter size-medium wp-image-31234" /></a>
 
-if we run the test we will see that the response is always larger than that
+If we run the test we will see that the response is always larger than that, in case of an error response the size would be, probably, smaller and our assertion will fail.
 
 <h2>Database test plan tutorial</h2>
 
-	Mysql but any other will be also ok, like MongoDB or Oracle based ones
+Now we are going to see how to configure, run and analyze the results of a test against a MySQL Database. This example is about MySQL but it can be done using any other kind of DB like Oracle, MongoDB or others.
+	<li>Install MySQL</li>
+
+If you do not have MySQL installed in your computer, you can download it from <a href="http://dev.mysql.com/downloads/">http://dev.mysql.com/downloads/</a> and install the MySQL server, it is very easy.
+
+	<li>Download the MySQL driver</li>
 	
-	Download mysql connector and copy it in the lib directory of jmeter mysql-connector-java-5.1.6 C:\jmeter\apache-jmeter-2.11\lib
+	Download mysql connector (<code>mysql-connector-java-5.1.6</code>) and copy it in the lib directory of jmeter <code>C:\jmeter\apache-jmeter-2.11\lib</code>.
 
-	If you do not have MySQL installed in your computer, you can download it from <a href="http://dev.mysql.com/downloads/">http://dev.mysql.com/downloads/</a> and install the MySQL server, it is very easy.
+	
 
-	Create database
+		<li>Create database</li>
+
+You can create a database as you want, here is just an example of a very simple one:
 			
+<pre class="brush:bash">
 			create database jmeter;
 			
 			use jmeter;
@@ -706,42 +698,61 @@ if we run the test we will see that the response is always larger than that
 			
 			insert into jmeter_stuff(id, name, description)VALUES(3, "tupac", "the other");
 
-		
-	Create a test Plan using a new Thread Group, a new configuration element of the type JDBC configuration and a new request (sampler) of the type JDBC, add also a listener to parse and view the results in the same way as we did in the example before. The only difference is the type of the sampler, in this case JDBC Sampler. 
+	</pre>
+	
+<li>Create a test plan</li>
+ Do the same actions as in the chapter before to create a test Plan using a new Thread Group, a new configuration element of the type JDBC configuration and a new request (sampler) of the type JDBC, add also a listener to parse and view the results in the same way as we did in the example before. 
+The only difference is the type of the sampler, in this case JDBC Sampler. 
 
-give a meaningful name to the Variable Bound to Pool and write some SQL statement:
+<li>JDBC Sampler</li>
 
+Give a meaningful name to the Variable Bound to Pool and write some SQL statement:
+
+<pre class="brush:bash">
 select * from jmeter_stuff;
+</pre>
 
-screenshot nmew sampler
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-request-configuration.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-request-configuration-300x159.jpg" alt="db request configuration" width="300" height="159" class="aligncenter size-medium wp-image-31221" /></a>
 
-add new JDBC Connection Configuration to the sampler
+<li>JDBC Connection configuration</li>
+Add a new JDBC Connection Configuration to the sampler.
 
-right click on the JDBC sampler and add connection configuration
+<strong>right click on the JDBC sampler -&gt; add connection configuration</strong>
 
-change the parameters as folows:
+Change the parameters as follows:
 
+<pre class="brush:bash">
 Variable Bound to Pool= same name as in the sampler
 Database URl=jdbc:mysql://localhost:3306/jmeter
 JDBC Driver class=com.mysql.jdbc.Driver
 username=
 password=
 
-set username and password to your mysql credentials.
+set username and password to your MySql credentials.
+</pre>
 
-save the plan and execute.
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-connection-configuration.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-connection-configuration-300x200.jpg" alt="db connection configuration" width="300" height="200" class="aligncenter size-medium wp-image-31220" /></a>
+
+	<li>Save the plan and execute it.</li>
+
 	
 
-	you can verify and check the output in the same way as in the HTTP request test plan, you can also add preprocessors, post processors, assertions or any other kind of element that you may need.
+	You can verify and check the output in the same way as in the HTTP request test plan, you can also add preprocessors, post processors, assertions or any other kind of element that you may need.
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-results-response-data.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-results-response-data-300x195.jpg" alt="db results response data" width="300" height="195" class="aligncenter size-medium wp-image-31222" /></a>
 
 In this case the output is the results of the select statement.
 
 You can use this kind of samplers for updating data as well by changing the SQL statement in the sampler configuration.
 	
+In the following screen capture is the basic information about the request response results:
 
-<h2>JUnit test plan</h2>
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-results-response.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/db-results-response-300x196.jpg" alt="db results response" width="300" height="196" class="aligncenter size-medium wp-image-31223" /></a>
 
-	create a junit test in a java program, please get the one I provide if you like
+
+<h2>Junit test plan</h2>
+
+	create a Junit test in a java program, please get the one I provide if you like
 
 it basically contains a very easy test class with a couple of assertations, here is the code
 
@@ -768,14 +779,18 @@ this may be very helpful to test functional and business logic of application us
 <h2>JMeter Plugins</h2>
 
 	Different plugins are available for advanced users and use cases, some of them need extra installation, some not. 
+There are very useful plugins that allow to parse results using advanced options and analyze them using graphs and charts like <a href="http://jmeter-plugins.org/wiki/GraphsGeneratorListener/">http://jmeter-plugins.org/wiki/GraphsGeneratorListener/</a>. 
+There are also available plugins in order to connect JMeter with your continuous integration tool and run JMeter test plans directly from the CI software like a href="https://wiki.jenkins-ci.org/display/JENKINS/Performance+Plugin"&gt;https://wiki.jenkins-ci.org/display/JENKINS/Performance+Plugin</a> for Jenkins. 
+As i said the number of plugins is elevated and it is not possible to enumerate all of them, it is probably worth it to check if there is some plugins available in the internet before trying to implement yourself one on your own.
 
+You can also create your own plugin for JMeter, but this is out of the scope of this article.
 
 <h2>Summary</h2>
 
 	So that is all. 
-	We saw how to install JMeter and how to configure it for executing different kind of tests like HTTP requests, tests against databases and functional tests against JUnit ones. There are many others kind of tests and possibilities offered with JMeter that are not covered in this tutorial. The objective of this tutorial is to give a whole description of the application and to show how to configure your first test plans.
+	We saw how to install JMeter and how to configure it for executing different kind of tests like HTTP requests, tests against databases and functional tests against Junit ones. There are many others kind of tests and possibilities offered with JMeter that are not covered in this tutorial. The objective of this tutorial is to give a whole description of the application and to show how to configure your first test plans.
 	We also explained the main parts of the JMeter UI and how to use it and also the test plan elements that come with JMeter out of the box. 
-	In the last chapter we mentioned the possibility to expand JMeter with different Plug ins, this is a very interesting point for experience users with advanced needs.
+	In the last chapter we mentioned the possibility to expand JMeter with different Plugins; this is a very interesting point for experience users with advanced needs.
 		
 
 <h2>JMeter best practices</h2>
@@ -800,7 +815,7 @@ this may be very helpful to test functional and business logic of application us
 		<li>Use variables and loops in the same sampler instead of configuring several similar samples only differentiated by the variables and parameters that they are using.</li>
 
 	
-		<li>When creating JUnit test plans it is recommended to provide meaningful error and assertion messages so that the JMeter output is as understandable as possible, this is a general recommendation when working with unit tests that applies completely in this case.</li>
+		<li>When creating Junit test plans it is recommended to provide meaningful error and assertion messages so that the JMeter output is as understandable as possible, this is a general recommendation when working with unit tests that applies completely in this case.</li>
 
 
 	<li>	Using Stop <code>(Control + '.')</code>. This stops the threads immediately if possible.</li>
