@@ -9,6 +9,7 @@
 	<li>Finally we will mention some important best practices.</li>
 
 
+All examples have been configured and implemented using Java 8 update 0.20, Eclipse Luna 4.4, JMeter 2.11 and MySQL Community Server 5.6.21.
 
 <h2>Introduction</h2>
 
@@ -42,7 +43,7 @@
 
 	You need to do the following steps in order to get JMeter installed and running in your computer:
 	<li>First of all you have to install Java. You need a JRE 1.6 or above installed in your machine. To do this, just go to the Oracle download site and install the package suitable for your system: <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>.</li>
-	<li>Set the JAVA_HOME environment variable to point to the base directory location, where Java is installed on your machine. For Windows users:</li>
+	<li>Set the <code>JAVA_HOME</code> environment variable to point to the base directory location, where Java is installed on your machine. For Windows users:</li>
 
 <pre class="brush:bash">		
 	JAVA_HOME=C:\Program Files\Java\jdk1.8.0_20 or whatever your Java version is.
@@ -69,7 +70,7 @@
 </pre>
 	
 	<li>Download the latest version of JMeter from <a href="http://jmeter.apache.org/download_jmeter.cgi">http://jmeter.apache.org/download_jmeter.cgi</a> </li>
-	<li>Extract it to the folder C:\&gt;JMeter for example (in Windows).</li>
+	<li>Extract it to the folder <code>C:\&gt;JMeter</code> for example (in Windows).</li>
 	
 	<li>The structure of this folder should be something like:</li>
 	
@@ -91,7 +92,7 @@
 	    apache-jmeter-2.9\printable_docs
 </pre>
 	
-	<li>Then you can start JMeter by going to the folder C:\jmeter\apache-jmeter-2.11\bin (Windows users) and starting the program jmeter.bat.</li>
+	<li>Then you can start JMeter by going to the folder <code>C:\jmeter\apache-jmeter-2.11\bin</code> (Windows users) and starting the program <code>jmeter.bat</code>.</li>
 
 	<li>You should see the start screen of the JMeter GUI:</li>
 		
@@ -135,7 +136,7 @@ It is also possible to change the language of the UI and a big bunch of language
 	
 <h2>Test plans and components</h2>
 
-	Basically using JMeter consists in the creation, configuration and execution of test plans and the analysis their results. Test plans are sets of requests against local or remote servers (or clients) configured to run by following specific instructions. 
+	Basically using JMeter consists in the creation, configuration and execution of test plans and the analysis of their results. Test plans are sets of requests against local or remote servers (or clients) configured to run by following specific instructions. 
 	In the configuration of a test plan you can specify several input and output parameters and you can configure the basic conditions that should be met so the test plan is successful or not.
 	JMeter test plans are composed of different components. Here is a list of the most important ones with instructions about how you can add them using the JMeter UI and what their purpose is:
 	
@@ -575,6 +576,12 @@ It is also possible to change the language of the UI and a big bunch of language
 	
 	<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/stop2.png"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/stop2-300x139.png" alt="stop" width="300" height="139" class="aligncenter size-medium wp-image-31249" /></a>
 
+It is also possible to disable test plans for execution. To do this you just need to "toogle" the status of the test plan:
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/enable-disable-test-plan.png"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/enable-disable-test-plan-284x300.png" alt="enable disable test plan" width="284" height="300" class="aligncenter size-medium wp-image-31296" /></a>
+
+As you can see in the screen capture above, the disabled plans are rendered with grey color and they cannot be executed but they can be modified or reconfigured.
+
 <h2>Web (HTTP) test plan</h2>
 
 In this chapter we are going to see how to create a plan to test an specific web page via HTTP. For that purpose i will use the <a href="http://www.javacodegeeks.com">http://www.javacodegeeks.com</a> site.
@@ -679,7 +686,9 @@ If you do not have MySQL installed in your computer, you can download it from <a
 	
 	Download mysql connector (<code>mysql-connector-java-5.1.6</code>) and copy it in the lib directory of jmeter <code>C:\jmeter\apache-jmeter-2.11\lib</code>.
 
-	
+	<li>Start MySQL</li> 
+
+Start the DB server so that you can make queries against it.
 
 		<li>Create database</li>
 
@@ -752,7 +761,7 @@ In the following screen capture is the basic information about the request respo
 
 <h2>Junit test plan</h2>
 
-In this chapter we are going to explain how to use JMeter in combination with JUnit. This provides very strong mechanisms for testing functional test from a load and performance point of view.
+In this chapter we are going to explain how to use JMeter in combination with JUnit. This provides very strong mechanisms for executing functional tests from a load and performance point of view.
 
 	<li>First of all you need to create a Junit test like the following one:</li>
 
@@ -796,11 +805,17 @@ public class JMeterTest
 }
 </pre>
 
-This test mainly contains a couple of assertions in order to check how JMeter can use it, it is not the purpose of this tutorial to explain unit testing or JUnit in detail.
+This test mainly contains a couple of assertions in order to check how JMeter can use them, it is not the purpose of this tutorial to explain unit testing or JUnit in detail.
 
 	<li>Add test to JUnit directory</li>
 
-Package the unit test in a jar file and copy it into the directory <code>jmeter/lib/junit</code>. Ensure that the jar file contains the .class bytecode with the tests that you want JMeter to execute.
+Package the unit test in a jar file and copy it into the directory <code>jmeter/lib/junit</code>. Ensure that the jar file contains the .class bytecode with the tests that you want JMeter to execute. At the end of this article you can find a java project with a pom.xml that you can directly use to generate a jar file that can be used by JMeter. You just need to compile the code:
+
+<pre class="brush:bash">
+mvn compile
+</pre>
+
+Or you can export your project as JAR file including the bytecode and generated files directly in Eclipse or your favorite IDE.
 	
 	<li>Add a JUnit sampler request</li>
 
@@ -875,7 +890,10 @@ You can also create your own plugin for JMeter, but this is out of the scope of 
 
 <h2>Download</h2>
 
-	<div class="download">All JMeter templates, SQL scripts and Java code used in this article can be downloaded in the following link: <strong><a href="">JMeter_Tutorial</a></strong>.</div>
+	<div class="download">All JMeter templates, SQL scripts and Java code used in this article can be downloaded in the following link: <strong><a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/jmeter.rar">JMeter_Tutorial</a></strong>.</div>
+
+
+
 
 <h2>Resources</h2>
 
