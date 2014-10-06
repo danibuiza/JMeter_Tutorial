@@ -735,7 +735,7 @@ set username and password to your MySql credentials.
 
 	<li>Save the plan and execute it.</li>
 
-	
+	<li>View the results using the listener configured before.</li>
 
 	You can verify and check the output in the same way as in the HTTP request test plan, you can also add preprocessors, post processors, assertions or any other kind of element that you may need.
 
@@ -752,29 +752,79 @@ In the following screen capture is the basic information about the request respo
 
 <h2>Junit test plan</h2>
 
-	create a Junit test in a java program, please get the one I provide if you like
+In this chapter we are going to explain how to use JMeter in combination with JUnit. This provides very strong mechanisms for testing functional test from a load and performance point of view.
 
-it basically contains a very easy test class with a couple of assertations, here is the code
+	<li>First of all you need to create a Junit test like the following one:</li>
 
-code
-	
-	package the project into a jar file and copy it into jmeter lib junit
-	
-	be sure that the jar file contains the .class bytecode of the tests that you want to execute
-	
-	create a test plan as before and add a sampler of the type JUnit request
-	
-	add a junit request (sampler) and configure it to execute the methods that you want.
 
-screenshot
-	
-	add a listener to view results
-	
-	run the test plan
-	
-here you can see the results of the unit tests
+<pre class="brush:java">
+public class JMeterTest
+{
 
-this may be very helpful to test functional and business logic of application using JMeter with all the benefits that this application provides, it is also very interesting because it makes possible to combine all the Java language advantages with the multithreating capabilites of JMeter.
+    public JMeterTest()
+    {
+        // just for testing purposes
+        System.out.println( "calling the constructor" );
+    }
+
+    @Before
+    public void setUp() throws Exception
+    {
+        // just for testing purposes
+        System.out.println( "calling setup" );
+    }
+
+    @After
+    public void tearDown() throws Exception
+    {
+        // just for testing purposes
+        System.out.println( "calling tearDown" );
+
+    }
+
+    @Test
+    public void testMe()
+    {
+        for( int i = 0; i &lt; 30; i++ )
+        {
+            // just asserting randomly in order to check what happens in each case
+            int randomNumber = (int)( Math.random() * 100 );
+            System.out.println( randomNumber );
+            assertEquals( 0, randomNumber % 2 );
+        }
+    }
+}
+</pre>
+
+This test mainly contains a couple of assertions in order to check how JMeter can use it, it is not the purpose of this tutorial to explain unit testing or JUnit in detail.
+
+	<li>Add test to JUnit directory</li>
+
+Package the unit test in a jar file and copy it into the directory <code>jmeter/lib/junit</code>. Ensure that the jar file contains the .class bytecode with the tests that you want JMeter to execute.
+	
+	<li>Add a JUnit sampler request</li>
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/Junit-sampler-request.png"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/Junit-sampler-request-300x185.png" alt="Junit sampler request" width="300" height="185" class="aligncenter size-medium wp-image-31298" /></a>
+
+	Create a test plan as we saw before and add a sampler of the type JUnit request: <strong>Add Sampler-&gt;Junit Request</strong> and configure it in order to execute the methods that you want from the test that you just created above.
+
+In our case we are going to execute JUnit 4 based methods, but you can also do this using JUnit 3 by selecting the check box for this purpose.	
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/Junit-Sampler-Request-Configuration.jpg"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/Junit-Sampler-Request-Configuration-300x146.jpg" alt="Junit Sampler Request Configuration" width="300" height="146" class="aligncenter size-medium wp-image-31297" /></a>
+	
+	<li>	Add a listener to view results as we did in previous chapters</li>
+
+	<li>	Run the test plan</li>
+
+	<li>View the results	</li>
+
+Here we can see the results of the JUnit test that we have just created:
+
+<a href="http://www.javacodegeeks.com/wp-content/uploads/2014/10/junit-view-results.png"><img src="http://www.javacodegeeks.com/wp-content/uploads/2014/10/junit-view-results-300x209.png" alt="junit view results" width="300" height="209" class="aligncenter size-medium wp-image-31295" /></a>
+
+As we can see in the screenshot above, all our tests (1 test, 10 loops) failed. This is the expected behaviour since we wanted our test to fail. Actually the unit test that we just wrote has no functional meaning and it is useless. Its purpose is just to show how to configure JMeter to use these kind of unit tests.
+
+The stuff explained in this chapter may be very helpful to test functional and business logic of application using JMeter with all the benefits that this application provides, it is also very interesting because it makes possible to combine all the Java language advantages with the multithreating capabilites of JMeter.
 	
 <h2>JMeter Plugins</h2>
 
@@ -825,7 +875,7 @@ You can also create your own plugin for JMeter, but this is out of the scope of 
 
 <h2>Download</h2>
 
-	<div class="download">All JMeter templates and Java code used in this article can be downloaded in the following link: <strong><a href="">JMeter_Tutorial</a></strong>.</div>
+	<div class="download">All JMeter templates, SQL scripts and Java code used in this article can be downloaded in the following link: <strong><a href="">JMeter_Tutorial</a></strong>.</div>
 
 <h2>Resources</h2>
 
